@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 /**
  *main - Entry point
@@ -12,7 +10,7 @@ int main(void)
 	
 	for (i = 97; i <= 122; i++)
 	{
-		if (i != 113 || i != 101)
+		if (i != 113 && i != 101)
 		{
 			putchar(i);
 		}
