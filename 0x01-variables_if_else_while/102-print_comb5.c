@@ -10,7 +10,7 @@ int main(void)
 	int j;
 	int n;
 	int m;
-	
+
 	for (i = 0; i < 10; i++)
 	{
 		for (j = 0; j < 10; j++)
@@ -19,7 +19,7 @@ int main(void)
 			{
 				for (m = 0; m < 10; m++)
 				{
-					if (m > j || (m = j && n != i))
+					if ((m < j && n != i) || m > j || (m == j && n != i))
 					{
 						putchar('0' + i);
 						putchar('0' + j);
