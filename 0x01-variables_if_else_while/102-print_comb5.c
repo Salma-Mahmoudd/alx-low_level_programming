@@ -26,7 +26,7 @@ int main(void)
 						putchar(' ');
 						putchar('0' + n);
 						putchar('0' + m);
-						if (i != 9 || j != 8 || n != 9 || m != 9)
+					if (i != 9 || j != 8 || n != 9 || m != 9)
 						{
 							putchar(',');
 							putchar(' ');
