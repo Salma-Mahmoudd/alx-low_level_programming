@@ -5,8 +5,7 @@
  *@size: the size of the triangle
  * Return: Always 0.
  */
-void print_
-ddtriangle(int size)
+void print_triangle(int size)
 {
 	int i, j;
 
