@@ -1,46 +1,42 @@
 #include "main.h"
 
 /**
- * rot13 - rotate characters 13 places in the alphabet
- * @str: string
- * Return: string `s` rotated
+ * _atoi - Convert a string to integer.
+ * @s: char array string
+ * Description: Number in the string can be preceded by an infinite
+ * number of characters.
+ * You need to take into account all -/+ signs before the number.
+ * If there are no numbers in the string, return 0.
+ * No need to check for overflow.
+ * Not allowed to hard-code special values.
+ * Return: first integer found in string
  */
 
-char *rot13(char *str)
+int _atoi(char *s)
 {
-	int indx1 = 0, indx2;
-	char alphabet[52] = {'A', 'B', 'C', 'D', 'E', 'F',
-			     'G', 'H', 'I', 'J', 'K', 'L',
-			     'M', 'N', 'O', 'P', 'Q', 'R',
-			     'S', 'T', 'U', 'V', 'W', 'X',
-			     'Y', 'Z', 'a', 'b', 'c', 'd',
-			     'e', 'f', 'g', 'h', 'i', 'j',
-			     'k', 'l', 'm', 'n', 'o', 'p',
-			     'q', 'r', 's', 't', 'u', 'v',
-			     'w', 'x', 'y', 'z'};
-	char rot13key[52] = {'N', 'O', 'P', 'Q', 'R', 'S',
-			     'T', 'U', 'V', 'W', 'X', 'Y',
-			     'Z', 'A', 'B', 'C', 'D', 'E',
-			     'F', 'G', 'H', 'I', 'J', 'K',
-			     'L', 'M', 'n', 'o', 'p', 'q',
-			     'r', 's', 't', 'u', 'v', 'w',
-			     'x', 'y', 'z', 'a', 'b', 'c',
-			     'd', 'e', 'f', 'g', 'h', 'i',
-			     'j', 'k', 'l', 'm'};
+	int i;
+	int h, p;
 
-	while (str[indx1])
+	h = 0;
+	p = -1;
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (indx2 = 0; indx2 < 52; indx2++)
+		if (s[i] == '-')
+			p *= -1;
+
+		if (s[i] > 47 && s[i] < 58)
 		{
-			if (str[indx1] == alphabet[indx2])
-			{
-				str[indx1] = rot13key[indx2];
+			if (h < 0)
+				h = (h * 10) - (s[i] - '0');
+			else
+				h = (s[i] - '0') * -1;
+
+			if (s[i + 1] < 48 || s[i + 1] > 57)
 				break;
-			}
 		}
-
-		indx1++;
 	}
+	if (p < 0)
+		h *= -1;
 
-	return (str);
+	return (h);
 }
