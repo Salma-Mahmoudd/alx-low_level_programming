@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - prints its name
+ * main - prints all arguments it receives.
  * @argc: number of command line arguments
  * @argv: one-dimensional array of strings
  * Return: 0
