@@ -1,10 +1,11 @@
 #include <stdio.h>
-/
+#include <stdlib.h>
+/**
  * main - minimum number of coins
  * @argc: number of command line arguments
  * @argv: one-dimensional array of strings
  * Return: 0
- /
+ **/
 int main(int argc, char **argv)
 {
 	int coins = 0;
