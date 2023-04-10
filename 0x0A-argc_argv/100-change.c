@@ -30,6 +30,11 @@ int main(int argc, char **argv)
 						cents -= 10;
 						coins++;
 					}
+					else if (cents % 5)
+					{
+						cents -= 5;
+						coins++;
+					}
 					else
 					{
 						cents -= 1;
@@ -42,8 +47,16 @@ int main(int argc, char **argv)
 			{
 				while (!(cents % 10))
 				{
-					cents -= 1;
-					coins++;
+					if (cents % 5)
+					{
+						cents -= 5;
+						coins++;
+					}
+					else
+					{
+						cents -= 1;
+						coins++;
+					}
 				}
 				coins += (cents / 10);
 			}
@@ -51,8 +64,13 @@ int main(int argc, char **argv)
 			{
 				while (cents != 0)
 				{
-					coins++;
-					cents -= 1;
+					if (cents % 5)
+						coins++;
+					else
+					{
+						coins++;
+						cents -= 1;
+					}
 				}
 			}
 			printf("%d\n", coins);
