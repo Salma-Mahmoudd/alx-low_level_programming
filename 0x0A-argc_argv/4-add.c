@@ -16,9 +16,9 @@ int main(int argc, char **argv)
 	for (i = 1; i < argc; i++)
 	{
 		j = 0;
-		while (j < strlen(argv[i]))
+		while (j < (int)strlen(argv[i]))
 		{
-			if (!(isdigit(atoi(argv[i][j]))))
+			if (!(isdigit(argv[i][j])))
 			{
 				printf("Error\n");
 				return (1);
