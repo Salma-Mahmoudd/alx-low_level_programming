@@ -10,13 +10,14 @@
  **/
 int main(int argc, char **argv)
 {
-	int i, j = 0;
+	int i, j;
 	int sum = 0;
 
 	for (i = 1; i < argc; i++)
 	{
 		if (atoi(argv[i]) >= 0)
 		{
+			j = 0;
 			while (j < strlen(argv[i]))
 			{
 				if (isdigit(argv[i][j]))
