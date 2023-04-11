@@ -12,57 +12,26 @@ int main(int argc, char **argv)
 	int cents;
 
 	if (argc != 2)
-		printf("Error\n"), return (1);
-	else
 	{
-		cents = atoi(argv[1]);
-		if (cents <= 0)
-			printf("%d\n", 0);
-		else
-		{
-			if (cents >= 25)
-			{
-				coins += (cents / 25);
-				cents -= 25 * coins;
-				while (cents != 0)
-				{
-					if (cents >= 10)
-						cents -= 10, coins++;
-					else if (cents >= 5 && cents < 10)
-						cents -= 5, coins++;
-					else if (cents >= 2 && cents < 5)
-						cents -= 2, coins++;
-					else
-						cents -= 1, coins++;
-				}
-			}
-			else if (cents >= 10 && cents < 25)
-			{
-				coins += (cents / 10);
-				while (cents != 0)
-				{
-					if (cents >= 5)
-						cents -= 5, coins++;
-					else if (cents >= 2 && cents < 5)
-						cents -= 2, coins++;
-					else
-						cents -= 1, coins++;
-				}
-			}
-			else
-			{
-				while (cents != 0)
-				{
-					if (cents >= 5 && cents < 10)
-						coins++, cents -= 5;
-					else if (cents >= 2 && cents < 5)
-						cents -= 2, coins++;
-					else
-						coins++, cents -= 1;
-				}
-			}
-			printf("%d\n", coins);
-		}
+		printf("Error\n");
+		return (1);
 	}
+	cents = atoi(argv[1]);
+	if (cents <= 0)
+	{
+		printf("%d\n", 0);
+		return (0);
+	}
+	while (cents >= 25)
+		cents -= 25, coins++;
+	while (cents >= 10 && cents < 25)
+		cents -= 10, coins++;
+	while (cents >= 5 && cents < 10)
+		cents -= 5, coins++;
+	while (cents >= 2 && cents < 5)
+		cents -= 2, coins++;
+	while (cents == 1)
+		cents -= 1, coins++;
+	printf("%d\n", coins);
 	return (0);
 }
