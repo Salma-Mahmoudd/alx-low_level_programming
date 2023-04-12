@@ -30,7 +30,7 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			j++;
-			if (str[i + 1] == ' ')
+			if (str[i + 1] == ' ' || str[i + 1] == '\0')
 			{
 				words[c] = (char *)malloc(sizeof(char) * j + 1);
 				if (words[c] == NULL)
