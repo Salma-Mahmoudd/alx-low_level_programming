@@ -37,7 +37,8 @@ char **strtow(char *str)
 				{
 					while (--c >= 0)
 						free(words[c]);
-					free(words), return (NULL);
+					free(words);
+					return (NULL);
 				}
 				for (x = 0; x < j; x++)
 					words[c][x] = str[i + x + 1 - j];
@@ -46,5 +47,6 @@ char **strtow(char *str)
 		}
 		i++;
 	}
-	words[c] = '\0', return (words);
+	words[c] = '\0';
+	return (words);
 }
