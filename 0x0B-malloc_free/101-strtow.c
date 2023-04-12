@@ -39,11 +39,10 @@ char **strtow(char *str)
 				}
 				for (x = 0; x < j; x++)
 					words[c][x] = str[i + x + 1 - j];
-				words[c][x] = '\0', c++, j = 0;
+				c++, j = 0;
 			}
 		}
 		i++;
 	}
-	words[c] = '\0';
 	return (words);
 }
