@@ -14,14 +14,11 @@ char **strtow(char *str)
 		return (NULL);
 	while (str[i] != '\0')
 	{
-		if (str[i] != ' ')
-		{
-			if (str[i + 1] == ' ' || str[i + 1] == '\0')
-				w++;
-		}
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+			w++;
 		i++;
 	}
-	words = (char **)malloc(sizeof(char *) * w + 1);
+	words = (char **)malloc(sizeof(char *) * (w + 1));
 	if (words == NULL || w < 1)
 		return (NULL);
 	i = 0;
@@ -32,7 +29,7 @@ char **strtow(char *str)
 			j++;
 			if (str[i + 1] == ' ' || str[i + 1] == '\0')
 			{
-				words[c] = (char *)malloc(sizeof(char) * j + 1);
+				words[c] = (char *)malloc(sizeof(char) * (j + 1));
 				if (words[c] == NULL)
 				{
 					while (--c >= 0)
