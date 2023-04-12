@@ -10,7 +10,7 @@ char **strtow(char *str)
 {
 	int i = 0, j = 0, c = 0, x = 0, w = 0;
 	char **words;
-	if (str == NULL && str == "")
+	if (str == NULL || str == "")
 		return (NULL);
 	while (str[i] != '\0')
 	{
@@ -51,4 +51,5 @@ char **strtow(char *str)
 		i++;
 	}
 	words[c] = '\0';
+	return (words);
 }
