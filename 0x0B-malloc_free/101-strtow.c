@@ -6,7 +6,7 @@
  * @str: string to split
  * Return: a pointer to the array, or NULL if it fails.
  **/
-char strtow(char *str)
+char **strtow(char *str)
 {
 	int i = 0, j = 0, c = 0, x = 0, w = 0;
 	char **words;
