@@ -26,7 +26,7 @@ char *argstostr(int ac, char **av)
 	{
 		while (av[i][j] != '\0')
 			s[x++] = av[i][j];
-		s[x++] = '\n';
+		s[x++] = '\n', j = 0;
 	}
 	return (s);
 }
