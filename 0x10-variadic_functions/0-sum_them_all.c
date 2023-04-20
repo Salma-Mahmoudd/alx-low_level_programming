@@ -6,7 +6,7 @@
  * the sum of all its parameters.
  * @n: number of args.
  * Return: result of sum or 0.
- */
+ **/
 int sum_them_all(const unsigned int n, ...)
 {
 	int sum = 0;
