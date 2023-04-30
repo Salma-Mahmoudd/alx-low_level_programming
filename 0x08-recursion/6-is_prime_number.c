@@ -29,7 +29,7 @@ int is_prime_number(int n)
 	int count = 0, test = n;
 
 	if (n < 0)
-		n *= -1, test = n;
+		return (0);
 	count = _prime_number(n, test);
 	if (count != 2 || n == 0)
 		return (0);
