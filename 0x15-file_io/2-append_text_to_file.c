@@ -12,11 +12,11 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (!filename)
 		return (-1);
-	file = open(filename, O_ APPEND | O_WRONLY);
+	file = open(filename, O_APPEND | O_WRONLY);
 	if (text_content)
 		addedText = write(file, text_content, strlen(text_content));
 	if (file == -1 || addedText == -1)
 		return (-1);
-	close(newFile);
+	close(file);
 	return (1);
 }
