@@ -11,12 +11,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t file, tot_n, actual_n;
 	char* text;
 
+	if (filename == NULL)
+		return (0);
 	text = malloc(letters);
 	if (!text)
 		return (0);
 	file = open (filename, O_RDONLY);
 	tot_n = read (file, text, letters);
-	actual_n = write(STDOUT_FILENO, buffer, tot_n);
+	actual_n = write(STDOUT_FILENO, text, tot_n);
 	if (file == -1 || tot_n == -1 || actual_n == -1 || actual_n != tot_n)
 	{
 		free(text);
