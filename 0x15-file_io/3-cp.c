@@ -7,7 +7,7 @@
  **/
 int main(int ac, char **av)
 {
-	ssize_t file = 1, newFile, tot_n, actual_n, i = 1;
+	int file, newFile, tot_n, actual_n;
 	char *text[1024];
 
 	if (ac != 3)
@@ -17,9 +17,9 @@ int main(int ac, char **av)
 	}
 	file = open(av[1], O_RDONLY);
 	newFile = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while (file > 0)
+	tot_n = read(file, text, 1024);
+	while (tot_n > 0)
 	{
-		tot_n = read(file, text, 1024);
 		actual_n = write(newFile, text, tot_n);
 		if (file == -1|| tot_n == -1)
 		{
@@ -31,14 +31,15 @@ int main(int ac, char **av)
 			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
+		tot_n = read(file, text, 1024);
 		newFile = open(av[2], O_WRONLY | O_APPEND);
 	}
-	if (close(av[1]) == -1)
+	if (close(file) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", file);
 		exit(100);
 	}
-	if (close(av[1]) == -1)
+	if (close(newFile) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", newFile);
 		exit(100);
