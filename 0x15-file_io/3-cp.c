@@ -9,6 +9,7 @@ int main(int ac, char **av)
 {
 	int file, newFile, tot_n, actual_n;
 	char *text[1024];
+	mode_t acs = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 
 	if (ac != 3)
 	{
@@ -16,7 +17,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	file = open(av[1], O_RDONLY);
-	newFile = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	newFile = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, acs);
 	tot_n = read(file, text, 1024);
 	while (tot_n > 0)
 	{
