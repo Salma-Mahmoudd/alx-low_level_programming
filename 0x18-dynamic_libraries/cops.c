@@ -1,4 +1,4 @@
-#include "main.h"
+#include "cops.h"
 /**
  * add - function that sum two numbers
  * @a: first number
