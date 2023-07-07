@@ -6,14 +6,14 @@
  **/
 hash_table_t *hash_table_create(unsigned long int size)
 {
-	 hash_table_s *new_ht;
+	 hash_table_t *new_ht;
 
-	 new_ht = malloc(sizeof(hash_table_s));
-	 if !new_ht
+	 new_ht = malloc(sizeof(hash_table_t));
+	 if (!new_ht)
 		 return NULL;
 	 new_ht->size = size;
-	 new_ht->array = malloc(size);
-	 if !(new_ht->array)
+	 new_ht->array = malloc(sizeof(hash_node_t *) * size);
+	 if (!(new_ht->array))
 	 {
 		 free(new_ht);
 		 return NULL;
